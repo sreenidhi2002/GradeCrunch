@@ -15,6 +15,6 @@ We hope to improve the app in the future by expanding it to include features tha
 
 The main challenge we faced in the development of this app was checking and communicating a large amount of user input across activities and processing this input to yield a result. 
 
-Overall, we can say that despite a few hurdles along the way, we found programming in Kotlin to be a lot smoother than working in a Java-only environment as the features available were simplified, easy to understand and even easier to use. Working on this project has given us an opportunity to work with Kotlin and see firsthand the advantages it offers and why its “Google’s number #1 choice for Android App Development”. Needless to say, we are both looking forward to working a lot more with Kotlin in the future.
+Overall, we can say that despite a few hurdles along the way, we found programming in Kotlin to be a lot smoother than working in a Java-only environment as the features available were simplified, easy to understand and even easier to use. Working on this project has given us an opportunity to work with Kotlin and see firsthand the advantages it offers and why its “Google’s number #1 choice for Android App Development”. Needless to say, we are both looking forward to expanding our view and working a lot more with Kotlin in the future.
 
 
