@@ -19,6 +19,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.example.gradecrunch.InputMainActivity">
+        </activity>
+        <activity android:name="com.example.gradecrunch.NextActivity">
+        </activity>
+        <activity android:name="com.example.gradecrunch.ResultsActivity">
+        </activity>
     </application>
 
 </manifest>
