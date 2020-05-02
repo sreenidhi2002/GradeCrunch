@@ -49,7 +49,6 @@ class InputAdapter(private val context: Context, gradesList: ArrayList<InputMode
 
             convertView.tag = holder
         } else {
-            // the getTag returns the viewHolder object set as a tag to the view
             holder = convertView.tag as myView
         }
         holder.viewEditText!!.setText(editModelArrayList[position].getInputValues())
