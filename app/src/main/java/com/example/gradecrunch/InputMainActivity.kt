@@ -8,41 +8,34 @@ import androidx.appcompat.app.AppCompatActivity
 import java.util.ArrayList
 
 class InputMainActivity : AppCompatActivity() {
-
-    private var btn: Button? = null
-    private var lv: ListView? = null
-    private var customeAdapter: EditAdapter? = null
-    lateinit var editModelArrayList: ArrayList<EditModel>
+    lateinit var theInputArrayList: ArrayList<InputModel>
+    private var theInputAdapter: InputAdapter? = null
+    private var theButton: Button? = null
+    private var theListView: ListView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inputmain)
 
-        lv = findViewById(R.id.listView) as ListView
-        btn = findViewById(R.id.btn) as Button
+        theListView = findViewById(R.id.gradesListView) as ListView
+        theButton = findViewById(R.id.calculateButton) as Button
+        theInputArrayList = populateList()
+        theInputAdapter = InputAdapter(this, theInputArrayList)
+        theListView!!.adapter = theInputAdapter
 
-        editModelArrayList = populateList()
-        customeAdapter = EditAdapter(this, editModelArrayList)
-        lv!!.adapter = customeAdapter
-
-        btn!!.setOnClickListener {
-            val intent = Intent(this@InputMainActivity, ResultsActivity::class.java)
-            startActivity(intent)
+        theButton!!.setOnClickListener {
+            val myIntent = Intent(this@InputMainActivity, InputMinGradeActivity::class.java)
+            startActivity(myIntent)
         }
-
     }
 
-    private fun populateList(): ArrayList<EditModel> {
-
-        val list = ArrayList<EditModel>()
-
+    private fun populateList(): ArrayList<InputModel> {
+        val populatedList = ArrayList<InputModel>()
         for (i in 0..7) {
-            val editModel = EditModel()
-            editModel.setEditTextValues("")
-            list.add(editModel)
+            val input = InputModel()
+            input.setInputValues(" ")
+            populatedList.add(input)
         }
-
-        return list
+        return populatedList
     }
-
 }

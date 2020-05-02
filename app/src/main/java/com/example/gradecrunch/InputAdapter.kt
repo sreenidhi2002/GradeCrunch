@@ -10,13 +10,10 @@ import android.widget.BaseAdapter
 import android.widget.EditText
 import java.util.ArrayList
 
-/**
- * Created by Parsania Hardik on 03-Jan-17.
- */
-class EditAdapter(private val context: Context, editModelArrayList2: ArrayList<EditModel>) : BaseAdapter() {
+class InputAdapter(private val context: Context, gradesList: ArrayList<InputModel>) : BaseAdapter() {
 
     init {
-        editModelArrayList = editModelArrayList2
+        editModelArrayList = gradesList
     }
 
     override fun getViewTypeCount(): Int {
@@ -24,7 +21,6 @@ class EditAdapter(private val context: Context, editModelArrayList2: ArrayList<E
     }
 
     override fun getItemViewType(position: Int): Int {
-
         return position
     }
 
@@ -32,60 +28,48 @@ class EditAdapter(private val context: Context, editModelArrayList2: ArrayList<E
         return editModelArrayList.size
     }
 
-    override fun getItem(position: Int): Any {
-        return editModelArrayList[position]
-    }
-
     override fun getItemId(position: Int): Long {
         return 0
     }
 
+    override fun getItem(position: Int): Any {
+        return editModelArrayList[position]
+    }
+
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         var convertView = convertView
-        val holder: ViewHolder
-
+        val holder: myView
         if (convertView == null) {
-            holder = ViewHolder()
+            holder = myView()
             val inflater = context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            convertView = inflater.inflate(R.layout.lv_item, null, true)
+            convertView = inflater.inflate(R.layout.input_listview, null, true)
 
-            holder.editText = convertView!!.findViewById(R.id.editid) as EditText
+            holder.viewEditText = convertView!!.findViewById(R.id.gradeInput) as EditText
 
             convertView.tag = holder
         } else {
             // the getTag returns the viewHolder object set as a tag to the view
-            holder = convertView.tag as ViewHolder
+            holder = convertView.tag as myView
         }
-
-        holder.editText!!.setText(editModelArrayList[position].getEditTextValues())
-
-        holder.editText!!.addTextChangedListener(object : TextWatcher {
+        holder.viewEditText!!.setText(editModelArrayList[position].getInputValues())
+        holder.viewEditText!!.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-
             }
-
             override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-                editModelArrayList[position].setEditTextValues(holder.editText!!.text.toString())
+                editModelArrayList[position].setInputValues(holder.viewEditText!!.text.toString())
 
             }
-
             override fun afterTextChanged(editable: Editable) {
-
             }
         })
-
         return convertView
     }
 
-    private inner class ViewHolder {
-
-        var editText: EditText? = null
-
+    private inner class myView {
+        var viewEditText: EditText? = null
     }
-
     companion object {
-        lateinit var editModelArrayList: ArrayList<EditModel>
+        lateinit var editModelArrayList: ArrayList<InputModel>
     }
-
 }

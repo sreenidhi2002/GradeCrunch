@@ -21,7 +21,7 @@
         </activity>
         <activity android:name="com.example.gradecrunch.InputMainActivity">
         </activity>
-        <activity android:name="com.example.gradecrunch.NextActivity">
+        <activity android:name="com.example.gradecrunch.InputMinGradeActivity">
         </activity>
         <activity android:name="com.example.gradecrunch.ResultsActivity">
         </activity>
